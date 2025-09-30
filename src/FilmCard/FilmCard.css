@@ -1,15 +1,26 @@
-.film-card{
-    margin-top: 100px;
-    max-width: 445px;
+.film-list {
+  display: flex;
+  flex-wrap: wrap; /* перенос на новую строку */
+  gap: 20px;       /* расстояние между карточками */
+  justify-content: center; /* центрируем */
+  margin-top: 20px;
 }
 
-.film-card__img{
-    display: block;
-    margin: 0 auto;
+.film-card {
+  width: 300px;
+  text-align: center;
+  background: #222;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.film-card__title{
-   text-align: center;
-   font-size: 18px;
-   font-weight: 400;
+.film-card__img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.film-card__title {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 16px;
 }

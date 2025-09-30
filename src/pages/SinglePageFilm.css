@@ -1,0 +1,72 @@
+.SingleFilmPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+  min-height: 100vh;
+}
+
+.SingleFilmPage__container {
+  display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+}
+
+.SingleFilmPage__poster {
+  flex: 1;
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.SingleFilmPage__info {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.SingleFilmPage__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.SingleFilmPage__meta {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.SingleFilmPage__plot {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.SingleFilmPage__ratings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.SingleFilmPage__rating {
+  padding: 6px 12px;
+  background: #2b2b2b;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #d1d1d1;
+  border: 1px solid #444;
+}
+
+.SingleFilmPage__button {
+  margin-top: 20px;
+  align-self: flex-start;
+}

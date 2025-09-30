@@ -1,0 +1,25 @@
+/* Стили кнопки */
+.button {
+    height: 40px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8a2be2, #4b0082);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 6px rgba(138, 43, 226, 0.4);
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #9b30ff, #551a8b);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.7);
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 6px rgba(138, 43, 226, 0.4);
+}

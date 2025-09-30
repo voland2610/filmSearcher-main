@@ -1,5 +1,6 @@
 import { useState } from 'react';
-
+import './InputSearchFilm.css'
+import Button from '../Button/Button';
 
 function InputSearchFilm({setFilmData}) {
   const [loading, setLoading] = useState(false);
@@ -26,15 +27,18 @@ function InputSearchFilm({setFilmData}) {
 
   return (
     <>
-      <label htmlFor="name">Введите название фильма:</label>
-      <input
-        type="text"
-        name="name"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button onClick={fetchFilm}>Поиск</button>
-      {loading && <p>Загрузка...</p>}
+      <div className="InputSearchFilm">
+        <label className='InputSearchFilm__text' htmlFor="name">Введите название фильма</label>
+        <input
+          type="text"
+          name="name"
+          value={inputValue}
+          className='InputSearchFilm__input'
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <Button onClick={fetchFilm}>Поиск</Button>
+        {loading && <p>Загрузка...</p>}
+      </div>
     </>
   );
 }
