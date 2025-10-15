@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import './SinglePageFilm.css';
+import HeaderFilmSite from "../HeaderFilmSite/HeaderFilmSite";
 
 function SinglePageFilm(){
     const [SingleFim, setSingleFim] = useState([]);
@@ -15,7 +16,10 @@ function SinglePageFilm(){
     }, [title]);
 
     return (
+      <>
+      <HeaderFilmSite></HeaderFilmSite> 
       <div className="SingleFilmPage">
+        <span onClick={()=>localStorage.setItem(SingleFim.imdbID, SingleFim.Title)}>❤️</span>
         {SingleFim.Title && (
           <div className="SingleFilmPage__container">
             <img
@@ -44,6 +48,7 @@ function SinglePageFilm(){
           </div>
         )}
       </div>
+      </>
     );
 }
 

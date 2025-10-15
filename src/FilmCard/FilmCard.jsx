@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './FilmCard.css';
-import Button from '../Button/Button';
-import { NavLink } from 'react-router-dom';
+import Def from '../def/Def';
 
 function FilmCard({ filmData }) {
   const nameFilms = ['iron man', 'iron man 2', 'fight club', "Blade Runner 2049", "nobody", "nobody 2", "Nightcrawler"];
@@ -23,24 +22,21 @@ function FilmCard({ filmData }) {
       {isEmptyFilmData ? (
         <div className="film-list">
           {startsFilm.map((data, index) => (
-            <div key={index} className="film-card">
-              <img className="film-card__img" src={data.Poster} alt={data.Title} />
-              <p className="film-card__title">{data.Title}</p>
-              <NavLink to={`/${data.imdbID}`}>
-                <Button>--</Button>
-              </NavLink>              
-            </div>
+            data && data.Response !== "False" && (
+              
+              <Def
+                key={index} 
+                src={data.Poster}
+                alt={data.Title}
+                to={`/${data.imdbID}`}
+
+              />
+            )
           ))}
         </div>
       ) : (
         <div className="film-list">
-          <div className="film-card">
-            <img className="film-card__img" src={filmData.Poster} alt={filmData.Title} />
-            <p className="film-card__title">{filmData.Title}</p>
-            <NavLink to={`/${filmData.imdbID}`}>
-                <Button>--</Button>
-            </NavLink> 
-          </div>
+          <Def src={filmData.Poster} alt={filmData.Title} to={`/${filmData.imdbID}`}></Def>
         </div>
       )}
     </>
