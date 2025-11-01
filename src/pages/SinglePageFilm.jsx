@@ -4,10 +4,14 @@ import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import './SinglePageFilm.css';
 import HeaderFilmSite from "../HeaderFilmSite/HeaderFilmSite";
+import { useFavoritesStore } from "../storage/favoritesStore";
+
 
 function SinglePageFilm(){
     const [SingleFim, setSingleFim] = useState([]);
     const {title} = useParams();
+    const {favorites, toggleFavorite} = useFavoritesStore;
+    const isFavoriteFilm = favorites.some(f => SingleFim.imdbID === f.id);
 
     useEffect(()=>{
         fetch(`https://www.omdbapi.com/?i=${title}&apikey=3783628`)
@@ -19,7 +23,6 @@ function SinglePageFilm(){
       <>
       <HeaderFilmSite></HeaderFilmSite> 
       <div className="SingleFilmPage">
-        <span onClick={()=>localStorage.setItem(SingleFim.imdbID, SingleFim.Title)}>❤️</span>
         {SingleFim.Title && (
           <div className="SingleFilmPage__container">
             <img
@@ -41,9 +44,17 @@ function SinglePageFilm(){
                   </div>
                 ))}
               </div>
-              <NavLink to={`/`} className="SingleFilmPage__button">
-                <Button>Назад</Button>
-              </NavLink>
+              <div className="SingleFilmPage__buttons">
+                <NavLink to={`/`}>
+                  <Button>Назад</Button>
+                </NavLink>
+                <span className="" onClick={() => toggleFavorite({
+                   id: SingleFim.imdbID,
+                   title: SingleFim.alt,
+                   poster: SingleFim.src })}>
+                  {isFavoriteFilm ? '❤️' : '🤍'}
+                </span>
+              </div>
             </div>
           </div>
         )}

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './FilmCard.css';
 import Def from '../def/Def';
-
+ 
+// переписать чтобы с пустым полем все снова перерисовывалось 
 function FilmCard({ filmData }) {
   const nameFilms = ['iron man', 'iron man 2', 'fight club', "Blade Runner 2049", "nobody", "nobody 2", "Nightcrawler"];
   const [startsFilm, setStartsFilm] = useState([]);
